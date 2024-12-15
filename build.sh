@@ -76,7 +76,7 @@ for table_name in $(toml_get_table_names); do
 	cli_src=$(toml_get "$t" cli-source) || cli_src=$DEF_CLI_SRC
 	cli_ver=$(toml_get "$t" cli-version) || cli_ver=$DEF_CLI_VER
 
-	if ! RVP="$(get_rv_prebuilts "$cli_src" "$cli_ver" "$patches_src" "$patches_ver")"; then
+	if ! RVP="$(get_rv_prebuilts "$cli_src" "$cli_ver" "ReVanced/revanced-patches" "$patches_ver")"; then
 		abort "could not download rv prebuilts"
 	fi
 	read -r rv_cli_jar rv_patches_jar <<<"$RVP"
